@@ -1,132 +1,78 @@
-/* ================================================= */
-/* VARIABILE */
-/* ================================================= */
-
 :root {
     --bg-main: #f8e7e7;
     --bg-card: #ffffff;
     --bg-soft: #f0e6fa;
     --bg-highlight: #dceefc;
 
-    --text-main: #333333;
-    --text-muted: #555555;
+    --text-main: #333;
+    --text-muted: #555;
     --accent: #e0b0ff;
 
-    --radius-lg: 32px;
-    --radius-md: 20px;
-
+    --radius: 24px;
     --font-title: 'Montserrat', sans-serif;
     --font-body: 'Lato', sans-serif;
 }
 
-/* ================================================= */
-/* RESET */
-/* ================================================= */
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-
-/* ================================================= */
-/* BODY & STRUCTURĂ */
-/* ================================================= */
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-main);
+    background: var(--bg-main);
     color: var(--text-main);
     line-height: 1.7;
 }
 
-main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1.2rem;
-}
-
-/* ================================================= */
-/* HEADER */
-/* ================================================= */
-
 .site-header {
-    background-color: var(--bg-card);
     text-align: center;
-    padding: 4rem 2rem;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    margin-bottom: 3rem;
+    padding: 4rem 1rem;
+    background: var(--bg-card);
+    border-radius: 0 0 40px 40px;
 }
 
 .site-header h1 {
     font-family: var(--font-title);
-    font-size: 3.8rem;
-    line-height: 1.2;
+    font-size: 3rem;
     color: var(--accent);
 }
 
 .subtitle {
-    font-size: 1.1rem;
     color: var(--text-muted);
-    margin-top: 0.8rem;
+    margin-top: .5rem;
 }
 
-/* ================================================= */
-/* CARDURI */
-/* ================================================= */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
 
 .content-card {
-    background-color: var(--bg-card);
-    padding: 2.2rem;
+    background: var(--bg-card);
+    padding: 2rem;
     margin-bottom: 2rem;
-    border-radius: var(--radius-md);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 20px rgba(0,0,0,.05);
 }
 
 .inner-card {
+    background: var(--bg-card);
     border: 1px solid var(--accent);
-    border-radius: var(--radius-md);
-    padding: 1.6rem;
-    margin-bottom: 1.4rem;
-    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .highlight {
-    background-color: var(--bg-highlight);
+    background: var(--bg-highlight);
 }
 
 .soft {
-    background-color: var(--bg-soft);
+    background: var(--bg-soft);
 }
-
-/* ================================================= */
-/* TIPOGRAFIE */
-/* ================================================= */
-
-h2 {
-    font-family: var(--font-title);
-    font-size: 2rem;
-    margin-bottom: 1.4rem;
-}
-
-h3 {
-    font-family: var(--font-title);
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-muted);
-}
-
-p, li {
-    font-size: 1rem;
-}
-
-ul {
-    list-style-position: inside;
-}
-
-/* ================================================= */
-/* LAYOUT DESKTOP */
-/* ================================================= */
 
 .two-columns {
     display: flex;
@@ -145,18 +91,15 @@ ul {
     gap: 1.5rem;
 }
 
-/* ================================================= */
-/* GALERIE – DESKTOP */
-/* ================================================= */
-
 .flip-card {
     perspective: 1000px;
+    text-align: center;
 }
 
 .flip-inner {
     position: relative;
-    height: 240px;
-    transition: transform 0.6s;
+    height: 220px;
+    transition: transform .6s;
     transform-style: preserve-3d;
 }
 
@@ -172,8 +115,8 @@ ul {
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
-    border-radius: var(--radius-md);
-    background-color: var(--bg-soft);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
     font-size: 3rem;
 }
 
@@ -184,78 +127,40 @@ ul {
 .flip-back img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius);
 }
 
 figcaption {
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 0.4rem;
+    margin-top: .5rem;
+    font-size: .9rem;
 }
-
-/* ================================================= */
-/* VIDEO */
-/* ================================================= */
 
 .video-wrapper iframe {
     width: 100%;
     height: 360px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius);
 }
-
-/* ================================================= */
-/* FOOTER */
-/* ================================================= */
 
 footer {
     text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    padding: 2rem 1rem;
+    font-size: .9rem;
 }
 
-/* ================================================= */
-/* MOBILE FIX (NU STRICĂ DESKTOPUL) */
-/* ================================================= */
-
-@media (max-width: 768px) {
-
-    .site-header {
-        padding: 2.2rem 1.2rem;
-    }
-
-    .site-header h1 {
-        font-size: 2.1rem;
-    }
-
+/* ADAPTIVE */
+@media (max-width: 900px) {
     .two-columns {
         flex-direction: column;
     }
+}
 
+@media (max-width: 768px) {
     .grid-two,
     .gallery {
         grid-template-columns: 1fr;
     }
 
-    .content-card {
-        padding: 1.4rem;
-    }
-
-    .inner-card {
-        padding: 1.2rem;
-    }
-
-    /* DEZACTIVĂM FLIP DOAR PE MOBILE */
-    .flip-inner,
     .flip-card:hover .flip-inner {
         transform: none;
-    }
-
-    .flip-front {
-        font-size: 2.2rem;
-    }
-
-    .video-wrapper iframe {
-        height: 220px;
     }
 }
