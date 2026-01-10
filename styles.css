@@ -1,469 +1,96 @@
-/* ==================================== */
-/* 1. Variabile CSS pentru Culori & Fonturi */
-/* ==================================== */
 :root {
-    /* Paleta Pastelată & Accesibilă */
     --color-primary: #f8e7e7; 
     --color-secondary: #dceefc; 
     --color-tertiary: #f0e6fa; 
     --color-accent: #e0b0ff; 
-    
-    /* Culori text și fundal (CONTRAST pentru ACCESIBILITATE) */
     --color-text-dark: #333333; 
-    --color-text-light: #555555; 
     --color-background-white: #ffffff; 
     --color-background-card: #fdfdfd; 
-
-    /* Tipografie */
     --font-heading: 'Montserrat', sans-serif; 
     --font-body: 'Lato', sans-serif; 
-    
-    /* Radius pentru elementele rotunjite */
     --border-radius-card: 25px; 
-    --border-radius-header: 40px; 
 }
 
-/* ==================================== */
-/* 2. Reset și Baza (HTML, Body) */
-/* ==================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: var(--font-body);
-    line-height: 1.8; 
+    line-height: 1.6;
     color: var(--color-text-dark);
-    background-color: var(--color-primary); 
-    min-height: 100vh; 
-    display: flex; 
+    background-color: var(--color-primary);
+    display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
-    flex-grow: 1; 
-    max-width: 1000px; 
-    margin: 20px auto; 
-    padding: 0 20px; 
+    flex-grow: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
 }
 
-/* ==================================== */
-/* 3. Tipografie și Stiluri Generale */
-/* ==================================== */
+/* Tipografie */
+h1 { font-family: var(--font-heading); font-size: 3.5rem; text-align: center; color: var(--color-accent); margin-bottom: 20px; }
+h2 { border-bottom: 2px solid var(--color-accent); margin-bottom: 20px; padding-bottom: 5px; }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--color-text-dark);
-    margin-bottom: 0.8em; 
-    line-height: 1.2;
-}
+/* Layout Grid Desktop */
+.two-columns-section-group { display: flex; gap: 20px; margin-bottom: 30px; }
+.two-columns-section-group > section { flex: 1; }
 
-h1 {
-    font-size: 3.8em;
-    color: var(--color-text-dark);
-}
+#personal-meaning, #improbable-contexts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+#improbable-contexts .final-discussion { grid-column: 1 / -1; }
 
-h2 {
-    font-size: 2.2em;
-    text-align: left; 
-    padding-bottom: 5px;
-    margin-bottom: 30px;
-    color: var(--color-text-dark);
-    border-bottom: 2px solid var(--color-accent);
-}
-
-h3 {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-    color: var(--color-text-light);
-}
-
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-ul li::before {
-    content: "• "; 
-    color: var(--color-accent); 
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-/* ==================================== */
-/* 4. Stiluri de Blocuri și Carduri cu Hover Effects */
-/* ==================================== */
-
-/* Header (Antet) */
-header {
-    background-color: var(--color-background-card); 
-    padding: 80px 20px;
-    text-align: center;
-    border-radius: 0 0 var(--border-radius-header) var(--border-radius-header); 
-    margin-bottom: 40px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
-}
-
-header h1 {
-    color: var(--color-accent); 
-    font-size: 4.5em; 
-    margin-bottom: 0.1em;
-}
-
-/* Stil pentru Carduri Principale cu Hover (Efect de Ridicare) */
+/* Carduri */
 .content-block {
-    background-color: var(--color-background-card); 
-    padding: 40px;
-    margin-bottom: 30px;
-    border-radius: var(--border-radius-card); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-    transition: all 0.3s ease-in-out; 
-    position: relative; 
-    z-index: 1; 
-}
-
-.content-block:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
-    transform: translateY(-5px); 
-    background-color: var(--color-background-white); 
-    z-index: 10; 
-}
-
-/* Stil de CASĂ (BLOCK) pentru sub-secțiuni */
-.block-section {
-    background-color: var(--color-background-white); 
+    background: var(--color-background-card);
     padding: 30px;
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     margin-bottom: 20px;
-    border-radius: var(--border-radius-card);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03); 
-    transition: background-color 0.3s ease-in-out;
 }
 
-.block-section:hover {
-    background-color: var(--color-primary); /* Se face puțin mai roz/bej la hover */
-}
+.block-section { background: #fff; padding: 20px; border-radius: 15px; margin-bottom: 15px; }
+.bordered-block { border: 1px solid var(--color-accent); }
 
-/* Stil nou: bloc cu bordură pentru separare mai puternică */
-.bordered-block {
-    border: 1px solid var(--color-accent); /* Bordură accentuată */
-}
-
-/* Stiluri noi pentru a diferenția contextele neobișnuite */
-.improbable-color {
-    background-color: var(--color-secondary); 
-    border: 1px dashed var(--color-accent);
-}
-
-.impossible-color {
-    background-color: var(--color-tertiary); 
-    border: 1px dashed var(--color-accent);
-}
-
-/* Stil pentru Citate */
-blockquote {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 1.1em;
-    margin: 25px 0;
-    padding: 20px 30px;
-    border-left: 6px solid var(--color-secondary); 
-    background-color: var(--color-tertiary); 
-    border-radius: 10px;
-    color: var(--color-text-dark);
-}
-
-/* ==================================== */
-/* 5. Layout-uri Specifice Secțiunilor (GRID) */
-/* ==================================== */
-
-/* Eliminăm regula care afecta Secțiunile 1 & 2 care au acum alt container */
-/* #formal-research {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-} */
-
-
-/* --- NOU: Stilizare pentru Secțiunile 1 & 2 (alăturate) cu FLEXBOX --- */
-.two-columns-section-group {
-    display: flex; /* Activează Flexbox */
-    gap: 30px; /* Spațiu între cele două secțiuni */
-    margin-bottom: 30px; /* Spațiu sub acest grup */
-}
-
-.two-columns-section-group > section {
-    flex: 1; /* Face ca ambele secțiuni să ocupe jumătate din lățime */
-    min-width: 45%; /* Asigură un spațiu minim */
-    margin-bottom: 0; /* Elimină marginile de sub secțiuni */
-}
-/* --------------------------------------------------------------------- */
-
-
-/* Container GRID pentru a pune Fericirea Personală și a Celorlalți una lângă alta */
-#personal-meaning {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px; /* Spațiu între casete */
-}
-
-/* Secțiunea "Fericirea pentru mine este..." */
-.personal-block {
+/* Video Responsive */
+.video-wrapper {
     position: relative;
-    padding-left: 60px; 
-    background-color: var(--color-secondary); 
-}
-
-.personal-block .quote-icon {
-    font-family: var(--font-heading);
-    font-size: 5em;
-    color: var(--color-accent);
-    position: absolute;
-    left: 10px;
-    top: -10px;
-    line-height: 1;
-    opacity: 0.6;
-}
-
-/* Perspectivele celorlalți */
-.others-perspectives {
-    background-color: var(--color-tertiary); 
-}
-
-.perspectives-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.image-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* AFIȘEAZĂ 2 COLOANE */
-    gap: 20px;
-    margin-top: 20px;
-}
-
-/* Ajustări pentru Efectul de Flip */
-.image-gallery-grid .gallery-item {
-    /* NOU: Setează o înălțime mai mare, dreptunghiulară (Landscape), pentru a se vedea mai bine */
-    height: 300px; 
-    position: relative;
-    perspective: 1000px; 
-    padding: 0; 
-    box-shadow: none; 
-}
-
-.image-gallery-grid .gallery-item:hover {
-    transform: none; 
-    box-shadow: none; 
-    border: none;
-}
-
-.image-gallery-grid img {
-    width: 100%;
-    height: 100%; 
-    object-fit: contain; 
-    display: block;
-    border-radius: 15px; 
-    margin-bottom: 0; 
-}
-
-.image-gallery-grid figcaption {
-    padding: 10px 0; 
-}
-
-/* --- Stiluri pentru Efectul de Flip 3D (ESENȚIALE) --- */
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s; 
-    transform-style: preserve-3d; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-    border-radius: var(--border-radius-card);
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; 
-    backface-visibility: hidden; 
-    background-color: var(--color-background-white);
-    border-radius: var(--border-radius-card);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.flip-card-back {
-    transform: rotateY(180deg); 
-}
-
-.flip-card-front .emoji {
-    font-size: 4em;
-    line-height: 1;
-    margin-bottom: 10px;
-    color: var(--color-text-dark);
-}
-
-.flip-card-back img {
-    /* Ajustare a înălțimii imaginii în fața din spate, ținând cont de figcaption */
-    flex-grow: 1; 
-    max-height: calc(100% - 40px); 
-    border-radius: 15px 15px 0 0; 
-}
-/* Secțiunea Muzică/Video */
-.media-block {
-    text-align: center;
-    padding: 50px;
-    background-color: var(--color-primary); 
-    border-radius: var(--border-radius-card);
-}
-
-.media-block iframe {
-    max-width: 80%; 
-    width: 100%;
-    height: 350px; 
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
     border-radius: 15px;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
 
-/* Container GRID pentru Contexte Extraordinare */
-#improbable-contexts {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Două coloane pentru Improbabil și Imposibil */
-    gap: 20px;
+/* Galerie Flip */
+.image-gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.gallery-item { height: 280px; perspective: 1000px; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { 
+    position: absolute; width: 100%; height: 100%; backface-visibility: hidden; 
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    border-radius: 20px; background: #fff; padding: 10px;
+}
+.flip-card-back { transform: rotateY(180deg); }
+.flip-card-back img { width: 100%; height: 80%; object-fit: cover; border-radius: 10px; }
+
+/* ADAPTIVE DESIGN (Media Queries) */
+@media (max-width: 992px) {
+    .two-columns-section-group { flex-direction: column; }
+    #personal-meaning, #improbable-contexts { grid-template-columns: 1fr; }
+    h1 { font-size: 2.5rem; }
 }
 
-/* Asigură-te că discuțiile finale ocupă toată lățimea în cadrul grid-ului secțiunii 6 */
-#improbable-contexts .final-discussion {
-    grid-column: 1 / -1; 
-    background-color: var(--color-primary); /* Fundalul primar pentru a ieși în evidență */
-    border: 2px solid var(--color-text-light);
-}
-/* --- Stiluri pentru Efectul de Flip 3D --- */
-
-
-
-/* ==================================== */
-/* 6. Footer */
-/* ==================================== */
-footer {
-    text-align: center;
-    padding: 25px;
-    margin-top: 40px; 
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 0.9em;
-    color: var(--color-text-light);
-    background-color: var(--color-background-card);
-    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.03);
-}
-
-/* ==================================== */
-/* 7. Adaptive Design (Media Queries) */
-/* ==================================== */
-
-/* ==================================== */
-/* 7. Adaptive Design (Media Queries) */
-/* ==================================== */
-
-/* ... stiluri tablete (max-width: 1024px) ... */
-@media screen and (max-width: 1024px) {
-    /* ... alte stiluri ... */
-    
-    /* Păstrează 2 coloane, dar ajustăm înălțimea */
-    .image-gallery-grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-    .image-gallery-grid .gallery-item {
-        height: 280px; /* Ușor mai mic pe tabletă */
-    }
-    /* ... alte stiluri ... */
-}
-
-/* Ajustări pentru Telefoane Mobile (Ecrane sub 768px) */
-@media screen and (max-width: 768px) {
-    /* ... alte stiluri mobile ... */
-    
-    /* --- MODIFICAT: Galeria de imagini devine 1 coloană pe mobil --- */
-    .image-gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    
-    /* Ajustează înălțimea cardului flip pe mobil */
-    .image-gallery-grid .gallery-item {
-        height: 200px; 
-    }
-    
-    .flip-card-back img {
-        max-height: calc(100% - 30px); /* Ajustează înălțimea imaginii pe mobil */
-    }
-    /* ------------------------------------------------------------- */
-    
-    /* ... restul stilurilor mobile ... */
-}
-
-/* ... stiluri ecrane foarte mici (max-width: 480px) ... */
-
-/* Ajustări pentru Telefoane Mobile (Ecrane sub 768px) */
-@media screen and (max-width: 768px) {
-    main { padding: 0 10px; }
-    
-    /* Secțiunile alăturate devin 1 coloană pe mobil */
-    .two-columns-section-group {
-        flex-direction: column; 
-        gap: 0; 
-    }
-    
-    .two-columns-section-group > section {
-        width: 100%;
-        margin-bottom: 30px; 
-    }
-    
-    /* Celelalte Secțiuni cu Grid devin 1 coloană (OBLIGATORIU pentru AWD) */
-    #personal-meaning,
-    #improbable-contexts {
-        grid-template-columns: 1fr; 
-        gap: 20px;
-    }
-    
-    .content-block, .block-section { padding: 20px; }
-    h1 { font-size: 2.5em; }
-    h2 { text-align: center; } 
-
-    /* Grila de perspective devine 1 coloană */
-    .perspectives-grid {
-        grid-template-columns: 1fr; 
-    }
-
-    /* Galeria de imagini devine 2 coloane pe mobil */
-    .image-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    
-    .media-block iframe { height: 250px; }
-}
-
-/* Ajustări pentru ecrane foarte mici (sub 480px) */
-@media screen and (max-width: 480px) {
-    h1 { font-size: 2em; }
-    .image-gallery-grid {
-        grid-template-columns: 1fr; /* 1 coloană pe telefoane mici */
-    }
+@media (max-width: 600px) {
+    .image-gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item { height: 220px; }
+    .content-block { padding: 15px; }
+    .perspectives-grid { grid-template-columns: 1fr; }
 }
