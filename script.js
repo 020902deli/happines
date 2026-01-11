@@ -3,11 +3,9 @@
     const today = new Date().toISOString().slice(0, 10);
 
     const happinessTasks = [
-        'Zâmbește cuiva necunoscut 🌸',
-        'Scrie 3 lucruri pentru care ești recunoscător 📝',
-        'Ascultă melodia ta preferată 💃',
-        'Fă o plimbare de 10 minute 🌿',
-        'Trimite un mesaj frumos cuiva ✨'
+        'Send a kind message to someone ✨',
+        'Write down 3 things you are grateful for 📝',
+        'Listen to your favorite song 💃'
     ];
 
     let state = JSON.parse(localStorage.getItem(STATE_KEY)) || {
@@ -51,13 +49,13 @@
     }
 
     function updateProgress() {
-        const doneCount = state.tasks.list.filter(t => t.done).length;
-        const percent = (doneCount / 3) * 100;
-        const fill = document.getElementById('task-progress-fill');
-        if (fill) fill.style.width = percent + '%';
-        const status = document.getElementById('task-status');
-        if (status) status.textContent = `${doneCount}/3 finalizate`;
-    }
+    const doneCount = state.tasks.list.filter(t => t.done).length;
+    const percent = (doneCount / 3) * 100;
+    const fill = document.getElementById('task-progress-fill');
+    if (fill) fill.style.width = percent + '%';
+    const status = document.getElementById('task-status');
+    if (status) status.textContent = `${doneCount}/3 completed`; // Tradus din 'finalizate'
+}
 
     function setupEvents() {
         const themeBtn = document.getElementById('themeToggle');
@@ -74,15 +72,15 @@
         const moodText = document.getElementById('mood-value');
 
         if (slider) {
-            slider.oninput = function () {
-                const val = this.value;
-                moodFill.style.width = val + '%';
+    slider.oninput = function () {
+        const val = this.value;
+        moodFill.style.width = val + '%';
 
-                if (val < 30) moodText.textContent = "Mâine va fi o zi mai bună! ✨";
-                else if (val < 70) moodText.textContent = "O zi echilibrată și liniștită. 🌸";
-                else moodText.textContent = "Ești plin de energie pozitivă! ☀️";
-            };
-        }
+        if (val < 30) moodText.textContent = "Tomorrow will be a better day! ✨";
+        else if (val < 70) moodText.textContent = "A balanced and peaceful day. 🌸";
+        else moodText.textContent = "You are full of positive energy! ☀️";
+    };
+}
     }
 
     function triggerConfetti() {
