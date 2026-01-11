@@ -24,10 +24,46 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, var(--soft-pink), var(--soft-blue));
+    /* Adăugăm mai multe culori pentru un gradient mai bogat */
+    background: linear-gradient(135deg, var(--soft-pink), var(--soft-blue), #f3e5f5, #e8f5e9);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     background-attachment: fixed;
     color: var(--text);
     line-height: 1.6;
+    transition: background 0.5s ease;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Clasă specială care se va activa când piesa „vibrează” */
+.music-pulse {
+    transform: scale(1.005);
+    filter: brightness(1.05);
+    transition: all 0.2s ease;
+}
+.music-bars {
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+    height: 20px;
+}
+.bar {
+    width: 4px;
+    height: 10px;
+    background: var(--accent-purple);
+    animation: barBounce 1s ease-in-out infinite alternate;
+}
+.bar:nth-child(2) { animation-delay: 0.2s; height: 15px; }
+.bar:nth-child(3) { animation-delay: 0.4s; height: 8px; }
+
+@keyframes barBounce {
+    from { height: 5px; }
+    to { height: 20px; }
 }
 
 /* ==================================== */
