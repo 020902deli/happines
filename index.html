@@ -35,10 +35,32 @@
         <section id="daily-vibe" class="glass-card interactive">
             <h2>✨ Doza de inspirație de azi</h2>
             <div id="task-list" class="task-grid"></div>
-            <div class="progress-bar-container">
-                <div id="task-progress-fill" class="progress-fill"></div>
+            <div class="progress-bar-container"
+                style="background: rgba(0,0,0,0.05); border-radius: 10px; height: 10px; margin: 15px 0; overflow: hidden;">
+                <div id="task-progress-fill" class="progress-fill"
+                    style="background: var(--accent-purple); height: 100%; width: 0%; transition: width 0.5s ease;">
+                </div>
             </div>
-            <p id="task-status">0/3 finalizate</p>
+            <p id="task-status" style="font-weight: bold; text-align: center;">0/3 finalizate</p>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
+
+            <div class="mood-tracker" style="text-align: center;">
+                <h3>Cât de fericit ești azi?</h3>
+                <div style="display: flex; align-items: center; gap: 15px; justify-content: center; margin: 20px 0;">
+                    <span>☁️</span>
+                    <input type="range" id="mood-slider" min="0" max="100" value="50"
+                        style="width: 60%; cursor: pointer; accent-color: var(--accent-purple);">
+                    <span>☀️</span>
+                </div>
+                <div id="mood-bar-container"
+                    style="width: 100%; background: rgba(0,0,0,0.05); height: 20px; border-radius: 10px; overflow: hidden;">
+                    <div id="mood-fill"
+                        style="height: 100%; width: 50%; background: linear-gradient(90deg, #ffdde1, #ee9ca7); transition: width 0.3s ease;">
+                    </div>
+                </div>
+                <p id="mood-value" style="margin-top: 10px; font-style: italic;">Te simți minunat!</p>
+            </div>
         </section>
 
         <div class="two-columns-section-group">
@@ -151,17 +173,17 @@
         <section id="media-and-design" class="glass-card">
             <h2>5. MUZICA = FERICIRE</h2>
             <h3>Piesa: Opalite - Taylor Swift</h3>
+
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YI8n09n8vB4" title="Opalite - Taylor Swift (Audio)"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/3PJC6uPIekc" title="Taylor Swift - Opalite" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
             </div>
 
             <p class="design-justification" style="margin-top: 20px; font-style: italic; font-size: 0.9rem;">
-                *Designul pastel (Roz, Albastru, Mov) și formele rotunjite au fost alese pentru a comunica Fericirea ca
-                pe o stare de bine interioară, calmă și liniștită. Spațiul amplu (Fluid Grid) contribuie la o senzație
-                de claritate și minimalism, menținând în același timp un contrast ridicat al textului (accesibilitate).*
+                *Designul pastel și formele rotunjite au fost alese pentru a comunica fericirea ca o stare de bine
+                interioară.*
             </p>
         </section>
 
