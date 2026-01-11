@@ -35,16 +35,10 @@
         <section id="daily-vibe" class="glass-card interactive">
             <h2>✨ Doza de inspirație de azi</h2>
             <div id="task-list" class="task-grid"></div>
-            <div class="progress-bar-container"
-                style="background: rgba(0,0,0,0.05); border-radius: 10px; height: 10px; margin: 15px 0; overflow: hidden;">
-                <div id="task-progress-fill" class="progress-fill"
-                    style="background: var(--accent-purple); height: 100%; width: 0%; transition: width 0.5s ease;">
-                </div>
+            <div class="progress-bar-container">
+                <div id="task-progress-fill" class="progress-fill"></div>
             </div>
-            <p id="task-status" style="font-weight: bold; text-align: center;">0/3 finalizate</p>
-
-
-
+            <p id="task-status">0/3 finalizate</p>
         </section>
 
         <div class="two-columns-section-group">
@@ -52,12 +46,14 @@
                 <h2>1. Fundamente</h2>
                 <div class="inner-block">
                     <h3>Etimologia</h3>
-                    <p>Cuvântul "fericire" provine din latinescul <em>felix</em>, însemnând norocos, roditor și prosper.
+                    <p class="design-justification">Cuvântul "fericire" provine din latinescul <em>felix</em>, însemnând
+                        norocos, roditor și prosper.
                     </p>
                 </div>
                 <div class="inner-block">
                     <h3>Filozofie</h3>
-                    <blockquote>„Fericirea nu poate fi cunoscută decât după ce te-ai îndoit de ea.” (Eliade)
+                    <blockquote class="design-justification">„Fericirea nu poate fi cunoscută decât după ce te-ai îndoit
+                        de ea.” (Eliade)
                     </blockquote>
                 </div>
             </section>
@@ -66,12 +62,14 @@
                 <h2>2. Fericirea sub alte forme</h2>
                 <div class="inner-block">
                     <h3>Explorare</h3>
-                    <p>Fericirea ca noroc orb sau soartă zâmbitoare, o evoluție de la coincidență la stare interioară.
+                    <p class="design-justification">Fericirea ca noroc orb sau soartă zâmbitoare, o evoluție de la
+                        coincidență la stare interioară.
                     </p>
                 </div>
                 <div class="inner-block">
                     <h3>Citate</h3>
-                    <blockquote>„Fericirea cuprinde cinci părți: hotărâri bune, sănătate, reușită, reputație și bunuri.”
+                    <blockquote class="design-justification">„Fericirea cuprinde cinci părți: hotărâri bune, sănătate,
+                        reușită, reputație și bunuri.”
                         (Platon)</blockquote>
                 </div>
             </section>
@@ -83,20 +81,33 @@
                 <div class="perspective-box mine">
                     <h3>Pentru mine este...</h3>
                     <ul>
-                        <li>Când îmi văd animăluțul</li>
-                        <li>O carte fantasy bună</li>
-                        <li>Râsul cu prietenii</li>
+                        <li><span>🐾</span> Când îmi văd animăluțul</li>
+                        <li><span>📖</span> O carte fantasy bună</li>
+                        <li><span>✨</span> Râsul cu prietenii</li>
                     </ul>
                 </div>
-                <div class="perspective-box others">
+
+                <div class="perspective-box mine">
                     <h3>Pentru ceilalți...</h3>
-                    <p><strong>Mama:</strong> Filmele koreane</p>
-                    <p><strong>Tata:</strong> Muzica anilor '80</p>
-                    <p><strong>Prietena:</strong> Comori de la second-hand</p>
+                    <div class="person-item">
+                        <span class="person-label">Mama</span>
+                        <span>Filmele koreane 🍿</span>
+                    </div>
+                    <div class="person-item">
+                        <span class="person-label">Tata</span>
+                        <span>Muzica anilor '80 🎸</span>
+                    </div>
+                    <div class="person-item">
+                        <span class="person-label">Prietena</span>
+                        <span>Comori de la second-hand 💎</span>
+                    </div>
                 </div>
             </div>
         </section>
+        <section id="personal-meaning" class="glass-card">
+            <h2>4. Fericirea in imagini</h2>
 
+        </section>
 
 
         <div class="image-gallery-grid">
@@ -156,10 +167,10 @@
         </div>
 
         <section id="media-and-design" class="glass-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                <div style="display: flex; flex-direction: column;">
+            <div class="music-header-container">
+                <div class="music-titles">
                     <h2>5. MUZICA = FERICIRE</h2>
-                    <h3 style="font-weight: 500; opacity: 0.9;">Piesa: Opalite - Taylor Swift</h3>
+                    <h3 class="music-subtitle">Piesa: Opalite - Taylor Swift</h3>
                 </div>
                 <div class="music-bars">
                     <div class="bar"></div>
@@ -177,8 +188,7 @@
                 </iframe>
             </div>
 
-            <p class="design-justification"
-                style="margin-top: 20px; font-style: italic; font-size: 0.9rem; border-left: 3px solid var(--accent-purple); padding-left: 15px;">
+            <p class="design-justification">
                 *Designul pastel (Roz, Albastru, Mov) și formele rotunjite au fost alese pentru a comunica Fericirea ca
                 pe o stare de bine interioară, calmă și liniștită. Spațiul amplu (Fluid Grid) contribuie la o senzație
                 de claritate și minimalism, menținând în același timp un contrast ridicat al textului.*
@@ -187,40 +197,19 @@
 
         <section id="derivative-forms" class="glass-card">
             <h2>6. JOC ȘI FORME DERIVATE</h2>
-
-            <div class="inner-block" style="background: var(--card-bg); padding: 20px; border-radius: 20px;">
+            <div class="derivative-box">
                 <h3>Forme Derivate ale Fericirii</h3>
                 <p>Deși "Fericire" este un substantiv cu puține forme gramaticale înrudite directe (adjectiv:
                     **fericit**, verb: **a ferici**), putem explora concepte derivate și opuse care îi definesc
                     limitele:</p>
-                <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;">✨ **Nefericit/ă (Unhappy):** Forma negată care subliniază
-                        dependența stării de prezența sau absența Fericirii.</li>
-                    <li style="margin-bottom: 10px;">✨ **Fericitor/Fericitoare:** Termenul care descrie ceea ce produce
-                        sau induce starea de fericire (ex: un eveniment fericitor).</li>
-                    <li style="margin-bottom: 10px;">✨ **Fericitabil:** Deși nu este un termen uzual, ar putea descrie
-                        ceva ce este capabil să fie fericit.</li>
+                <ul class="derivative-list">
+                    <li>✨ **Nefericit/ă (Unhappy):** Forma negată care subliniază dependența stării de prezența sau
+                        absența Fericirii.</li>
+                    <li>✨ **Fericitor/Fericitoare:** Termenul care descrie ceea ce produce sau induce starea de fericire
+                        (ex: un eveniment fericitor).</li>
+                    <li>✨ **Fericitabil:** Deși nu este un termen uzual, ar putea descrie ceva ce este capabil să fie
+                        fericit.</li>
                 </ul>
-            </div>
-        </section>
-        <section id="daily-vibe" class="glass-card interactive">
-
-
-            <div class="mood-tracker" style="text-align: center;">
-                <h3>Cât de fericit ești azi?</h3>
-                <div style="display: flex; align-items: center; gap: 15px; justify-content: center; margin: 20px 0;">
-                    <span>☁️</span>
-                    <input type="range" id="mood-slider" min="0" max="100" value="50"
-                        style="width: 60%; cursor: pointer; accent-color: var(--accent-purple);">
-                    <span>☀️</span>
-                </div>
-                <div id="mood-bar-container"
-                    style="width: 100%; background: rgba(0,0,0,0.05); height: 20px; border-radius: 10px; overflow: hidden;">
-                    <div id="mood-fill"
-                        style="height: 100%; width: 50%; background: linear-gradient(90deg, #ffdde1, #ee9ca7); transition: width 0.3s ease;">
-                    </div>
-                </div>
-                <p id="mood-value" style="margin-top: 10px; font-style: italic;">Te simți minunat!</p>
             </div>
         </section>
     </main>
