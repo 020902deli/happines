@@ -113,6 +113,23 @@
             setTimeout(() => c.remove(), 4000);
         }
     }
+    // Funcție pentru simularea vizualizatorului audio
+function startMusicVisualizer() {
+    const mainContent = document.querySelector('main');
+    
+    // Creăm un efect de puls la fiecare 2 secunde (ritm relaxat)
+    setInterval(() => {
+        // Doar dacă utilizatorul a interacționat cu pagina
+        mainContent.classList.add('music-pulse');
+        
+        setTimeout(() => {
+            mainContent.classList.remove('music-pulse');
+        }, 500); // Durata pulsului
+    }, 2000);
+}
+
+// Pornim vizualizatorul când se încarcă pagina
+window.addEventListener('load', startMusicVisualizer);
 
     function save() { localStorage.setItem(STATE_KEY, JSON.stringify(state)); }
     init();
