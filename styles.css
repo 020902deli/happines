@@ -33,7 +33,33 @@ body {
     line-height: 1.6;
     transition: background 0.5s ease;
 }
+/* Stil pentru textul general (paragrafe, liste) */
+p, li, span, blockquote {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500; /* Greutate medie pentru o citire mai ușoară */
+    letter-spacing: 0.3px; /* Puțin spațiu între litere pentru un aspect aerisit */
+    color: var(--text);
+}
 
+/* Stil pentru titlurile mici din interiorul cardurilor (ex: Etimologie, Filosofie) */
+h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700; /* Bold pentru a contrasta cu paragraful */
+    text-transform: uppercase; /* Majuscule pentru un aspect ordonat */
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--accent-purple);
+    opacity: 0.8;
+}
+
+/* Stil special pentru citate */
+blockquote {
+    font-style: italic;
+    font-weight: 300; /* Mai subțire pentru a părea o reflecție */
+    border-left: 2px solid var(--accent-purple);
+    padding-left: 15px;
+    margin: 10px 0;
+}
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -41,11 +67,7 @@ body {
 }
 
 /* Clasă specială care se va activa când piesa „vibrează” */
-.music-pulse {
-    transform: scale(1.005);
-    filter: brightness(1.05);
-    transition: all 0.2s ease;
-}
+
 .music-bars {
     display: flex;
     gap: 3px;
@@ -131,6 +153,24 @@ main {
     margin: 0 auto;
     padding: 20px;
 }
+/* Actualizarea tuturor titlurilor de secțiuni cu fontul cursiv */
+h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem; /* Puțin mai mare pentru lizibilitate */
+    color: var(--accent-purple);
+    margin-bottom: 20px;
+}
+
+/* Dacă vrei ca și subtitlurile mici (3. Perspective, etc.) să fie la fel */
+.glass-card h2 {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Ajustare specifică pentru titlul din Hero dacă dorești să fie la fel */
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+}
 
 /* Această clasă asigură aspectul alb/glass peste tot */
 .glass-card {
@@ -148,10 +188,63 @@ main {
     gap: 25px;
 }
 
+/* Stiluri îmbunătățite pentru secțiunea Perspective */
 .perspective-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.perspective-box {
+    padding: 25px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.perspective-box.mine {
+    background: rgba(149, 117, 205, 0.1); /* Mov foarte deschis */
+    border: 1px solid var(--accent-purple);
+}
+
+
+
+.perspective-box h3 {
+    margin-bottom: 15px;
+    color: var(--accent-purple);
+    font-size: 1.3rem;
+    border-bottom: 2px solid rgba(149, 117, 205, 0.2);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.perspective-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.perspective-box li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.person-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.person-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent-purple);
 }
 .progress-fill {
     background: linear-gradient(90deg, var(--accent-purple), #b39ddb);
@@ -249,6 +342,95 @@ footer p {
 .validation-links a:hover {
     text-decoration: underline;
     opacity: 1;
+}
+/* --- Stiluri extrase din elemente inline --- */
+
+.progress-bar-container {
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    height: 10px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+#task-progress-fill {
+    background: var(--accent-purple);
+    height: 100%;
+    width: 0%; /* Va fi controlat în continuare de JS */
+    transition: width 0.5s ease;
+}
+
+#task-status {
+    font-weight: bold;
+    text-align: center;
+}
+
+.music-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.music-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.music-subtitle {
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.design-justification {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--accent-purple);
+    padding-left: 15px;
+}
+
+.derivative-box {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.derivative-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.derivative-list li {
+    margin-bottom: 10px;
+}
+
+.mood-tracker-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#mood-slider {
+    width: 60%;
+    cursor: pointer;
+    accent-color: var(--accent-purple);
+}
+
+#mood-bar-container {
+    width: 100%;
+    background: rgba(0,0,0,0.05);
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#mood-value {
+    margin-top: 10px;
+    font-style: italic;
 }
 
 /* Ajustare pentru mobil */
