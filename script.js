@@ -18,7 +18,7 @@
 
     function init() {
         document.body.dataset.theme = state.theme;
-        
+
         // Verifică task-urile zilei
         if (state.tasks.date !== today || state.tasks.list.length === 0) {
             const shuffled = happinessTasks.sort(() => 0.5 - Math.random());
@@ -60,24 +60,56 @@
     }
 
     function setupEvents() {
-    const themeBtn = document.getElementById('themeToggle');
-    if (themeBtn) {
-        themeBtn.onclick = () => {
-            state.theme = state.theme === 'light' ? 'dark' : 'light';
-            document.body.dataset.theme = state.theme;
-            save();
-        };
+        const themeBtn = document.getElementById('themeToggle');
+        if (themeBtn) {
+            themeBtn.onclick = () => {
+                state.theme = state.theme === 'light' ? 'dark' : 'light';
+                document.body.dataset.theme = state.theme;
+                save();
+            };
+        }
+        // Am eliminat referințele la modalul jurnalului pentru a evita erorile
+        const slider = document.getElementById('mood-slider');
+        const moodFill = document.getElementById('mood-fill');
+        const moodText = document.getElementById('mood-value');
+
+        if (slider) {
+            slider.oninput = function () {
+                const val = this.value;
+                moodFill.style.width = val + '%';
+
+                if (val < 30) moodText.textContent = "Mâine va fi o zi mai bună! ✨";
+                else if (val < 70) moodText.textContent = "O zi echilibrată și liniștită. 🌸";
+                else moodText.textContent = "Ești plin de energie pozitivă! ☀️";
+            };
+        }
     }
-    // Am eliminat referințele la modalul jurnalului pentru a evita erorile
-}
 
     function triggerConfetti() {
-        const container = document.getElementById('confetti-container');
-        for(let i=0; i<40; i++) {
+        const emojis = ['😊', '✨', '💖', '🌸', '☀️'];
+        for (let i = 0; i < 30; i++) {
             const c = document.createElement('div');
-            c.style.cssText = `position:fixed; width:8px; height:8px; background:hsl(${Math.random()*360},70%,70%); top:-10px; left:${Math.random()*100}vw; z-index:9999; border-radius:50%; pointer-events:none;`;
+            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            c.textContent = randomEmoji;
+            c.style.cssText = `
+            position: fixed; 
+            font-size: ${20 + Math.random() * 20}px; 
+            top: -50px; 
+            left: ${Math.random() * 100}vw; 
+            z-index: 9999; 
+            pointer-events: none;
+            user-select: none;
+        `;
             document.body.appendChild(c);
-            c.animate([{transform: 'translateY(0)'}, {transform: `translateY(100vh) rotate(360deg)`}], {duration: 2000 + Math.random()*2000});
+
+            c.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(110vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: 2000 + Math.random() * 2000,
+                easing: 'cubic-bezier(.37,0,.63,1)'
+            });
+
             setTimeout(() => c.remove(), 4000);
         }
     }
