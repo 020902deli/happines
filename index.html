@@ -1,129 +1,219 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>HAPPINESS: O Explorare Personală prin Pasteluri</title>
-    <meta name="description" content="O explorare personală, formală și vizuală a cuvântului 'HAPPINESS', construită cu principii de Adaptive Web Design și Accesibilitate.">
-    <meta name="author" content="Dumitru Delia">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happiness | O călătorie interioară</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@300;500;700&display=swap"
+        rel="stylesheet">
 </head>
-<body>
-    
-    <header id="intro">
-        <h1> CE ESTE FERICIREA? </h1>
-        <p class="subtitle">EXPLORARE - 6 PERSPECTIVE</p>
+
+<body data-theme="light">
+    <div id="confetti-container"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <span class="logo">Happiness.</span>
+            <div class="nav-btns">
+                <button id="themeToggle" class="theme-switcher-btn" aria-label="Schimbă tema">
+                    <span class="mode-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-shape"></div>
+        <h1 class="fade-in">CE ESTE FERICIREA?</h1>
+        <p class="subtitle">O explorare personală a celor 6 perspective asupra fericirii.</p>
     </header>
 
     <main>
-        <div class="two-columns-section-group">
-            <section id="formal-research-1" class="content-block">
-                <h2>1. FUNDAMENTE</h2>
-                <div id="etymology-block" class="block-section bordered-block"> 
-                    <h3>ETIMOLOGIA</h3>
-                    <p>Cuvântul "fericire" provine din latinescul <em>felix</em>, cu un sens polivalent: "norocos", "de succes", "roditor".</p>
-                </div>
+        <section id="daily-vibe" class="glass-card interactive">
+            <h2>✨ Doza de inspirație de azi</h2>
+            <div id="task-list" class="task-grid"></div>
+            <div class="progress-bar-container">
+                <div id="task-progress-fill" class="progress-fill"></div>
+            </div>
+            <p id="task-status">0/3 finalizate</p>
+        </section>
 
-                <div id="philosophical-block" class="block-section bordered-block">
-                    <h3>DEFINIŢIA FERICIRII</h3>
-                    <blockquote>
-                        <p>„Fericirea nu poate fi cunoscută decât după ce te-ai îndoit de ea.” (Mircea Eliade)</p>
+        <div class="two-columns-section-group">
+            <section class="glass-card info-card">
+                <h2>1. Fundamente</h2>
+                <div class="inner-block">
+                    <h3>Etimologia</h3>
+                    <p>Cuvântul "fericire" provine din latinescul <em>felix</em>, însemnând norocos, roditor și prosper.
+                    </p>
+                </div>
+                <div class="inner-block">
+                    <h3>Filozofie</h3>
+                    <blockquote>„Fericirea nu poate fi cunoscută decât după ce te-ai îndoit de ea.” (Eliade)
                     </blockquote>
                 </div>
             </section>
-        
-            <section id="formal-research-2" class="content-block">
-                <h2>2. FERICIREA ALTFEL</h2>
-                <div class="block-section bordered-block"> 
-                    <h3>EXPLORARE CONCEPTUALĂ</h3>
-                    <p>Latinii utilizau și cuvântul <em>fortuna</em> (fericire, soarta), originar din <em>fors</em> (întâmplare).</p>
+
+            <section class="glass-card info-card">
+                <h2>2. Fericirea sub alte forme</h2>
+                <div class="inner-block">
+                    <h3>Explorare</h3>
+                    <p>Fericirea ca noroc orb sau soartă zâmbitoare, o evoluție de la coincidență la stare interioară.
+                    </p>
                 </div>
-                <div class="block-section bordered-block">
-                    <h3>CITAT PLATON</h3>
-                    <blockquote>
-                        <p>„Fericirea cuprinde cinci părţi: hotărâri bune, sănătate, reuşită, reputaţie şi bunuri folositoare.” (Platon)</p>
-                    </blockquote>
+                <div class="inner-block">
+                    <h3>Citate</h3>
+                    <blockquote>„Fericirea cuprinde cinci părți: hotărâri bune, sănătate, reușită, reputație și bunuri.”
+                        (Platon)</blockquote>
                 </div>
             </section>
         </div>
 
-        <section id="personal-meaning" class="content-block">
-            <div id="my-happiness-block" class="personal-block block-section bordered-block">
-                <h3>FERICIREA PENTRU MINE...</h3>
-                <p class="quote-icon">„</p>
-                <ul>
-                    <li>când îmi văd pisica.</li>
-                    <li>când citesc o carte fantasy.</li>
-                    <li>timpul cu prietenii.</li>
-                </ul>
-            </div>
-
-            <div id="others-perspectives-block" class="others-perspectives block-section bordered-block">
-                <h3>PERSPECTIVELE CELORLALȚI</h3>
-                <div class="perspectives-grid">
-                    <div>
-                        <p><strong>Mama mea</strong>... filme koreane.</p>
-                        <p><strong>Tatăl meu</strong>... piese din anii 80.</p>
-                    </div>
-                    <div>
-                        <p><strong>Prietenul meu</strong>... tiktok despre Ronaldo.</p>
-                        <p><strong>Prietena mea</strong>... second-hand.</p>
-                    </div>
+        <section id="personal-meaning" class="glass-card">
+            <h2>3. Perspective</h2>
+            <div class="perspective-grid">
+                <div class="perspective-box mine">
+                    <h3>Pentru mine este...</h3>
+                    <ul>
+                        <li>Când îmi văd animăluțul</li>
+                        <li>O carte fantasy bună</li>
+                        <li>Râsul cu prietenii</li>
+                    </ul>
+                </div>
+                <div class="perspective-box others">
+                    <h3>Pentru ceilalți...</h3>
+                    <p><strong>Mama:</strong> Filmele koreane</p>
+                    <p><strong>Tata:</strong> Muzica anilor '80</p>
+                    <p><strong>Prietena:</strong> Comori de la second-hand</p>
                 </div>
             </div>
         </section>
-        
-        <section id="visual-expression" class="content-block bordered-block">
-            <h2>4. FERICIREA ÎN IMAGINI</h2>
-            <div class="image-gallery-grid">
-                <figure class="gallery-item flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><span class="emoji">🌊</span><figcaption>Natură</figcaption></div>
-                        <div class="flip-card-back"><img src="4.jpg" alt="Liniștea mării"><figcaption>Natură</figcaption></div>
-                    </div>
-                </figure>
-                <figure class="gallery-item flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><span class="emoji">☕</span><figcaption>Plăceri</figcaption></div>
-                        <div class="flip-card-back"><img src="3.jpg" alt="Cafea minimalistă"><figcaption>Plăceri</figcaption></div>
-                    </div>
-                </figure>
-            </div>
-        </section>
 
-        <section id="media-and-design" class="content-block media-block bordered-block">
+
+
+        <div class="image-gallery-grid">
+
+            <figure class="gallery-item flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="emoji">🌊</span>
+                        <figcaption>Inspirare din natură</figcaption>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="4.jpg" alt="Liniștea mării">
+                        <figcaption>Inspirare din natură</figcaption>
+                    </div>
+                </div>
+            </figure>
+
+            <figure class="gallery-item flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="emoji">☕</span>
+                        <figcaption>Plăcerile simple</figcaption>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="3.jpg" alt="O ceașcă de cafea cu artă latte minimalistă">
+                        <figcaption>Plăcerile simple</figcaption>
+                    </div>
+                </div>
+            </figure>
+
+            <figure class="gallery-item flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="emoji">🐈</span>
+                        <figcaption>Un moment de răsfăț</figcaption>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="5.jpg" alt="Pisica">
+                        <figcaption>Un moment de răsfăț</figcaption>
+                    </div>
+                </div>
+            </figure>
+
+            <figure class="gallery-item flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="emoji">🌸</span>
+                        <figcaption>Frumusetea florilor</figcaption>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="2.jpg" alt="Frumusetea florilor">
+                        <figcaption>Frumusetea florilor</figcaption>
+                    </div>
+                </div>
+            </figure>
+
+        </div>
+        <section id="media-and-design" class="glass-card">
             <h2>5. MUZICA = FERICIRE</h2>
             <h3>Piesa: Opalite - Taylor Swift</h3>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/YI8n09n8vB4" title="Opalite - Taylor Swift (Audio)" allowfullscreen></iframe>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YI8n09n8vB4" title="Opalite - Taylor Swift (Audio)"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
+
+            <p class="design-justification" style="margin-top: 20px; font-style: italic; font-size: 0.9rem;">
+                *Designul pastel (Roz, Albastru, Mov) și formele rotunjite au fost alese pentru a comunica Fericirea ca
+                pe o stare de bine interioară, calmă și liniștită. Spațiul amplu (Fluid Grid) contribuie la o senzație
+                de claritate și minimalism, menținând în același timp un contrast ridicat al textului (accesibilitate).*
+            </p>
         </section>
 
-        <section id="derivative-forms" class="content-block bordered-block">
+        <section id="derivative-forms" class="glass-card">
             <h2>6. JOC ȘI FORME DERIVATE</h2>
-            <div class="block-section bordered-block">
-                <ul>
-                    <li>**Nefericit/ă**: Forma negată.</li>
-                    <li>**Fericitor**: Ceea ce produce fericire.</li>
+
+            <div class="inner-block" style="background: var(--card-bg); padding: 20px; border-radius: 20px;">
+                <h3>Forme Derivate ale Fericirii</h3>
+                <p>Deși "Fericire" este un substantiv cu puține forme gramaticale înrudite directe (adjectiv:
+                    **fericit**, verb: **a ferici**), putem explora concepte derivate și opuse care îi definesc
+                    limitele:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                    <li style="margin-bottom: 10px;">✨ **Nefericit/ă (Unhappy):** Forma negată care subliniază
+                        dependența stării de prezența sau absența Fericirii.</li>
+                    <li style="margin-bottom: 10px;">✨ **Fericitor/Fericitoare:** Termenul care descrie ceea ce produce
+                        sau induce starea de fericire (ex: un eveniment fericitor).</li>
+                    <li style="margin-bottom: 10px;">✨ **Fericitabil:** Deși nu este un termen uzual, ar putea descrie
+                        ceva ce este capabil să fie fericit.</li>
                 </ul>
             </div>
         </section>
-
-        <section id="improbable-contexts" class="content-block bordered-block">
-            <div class="block-section improbable-color">
-                <h3>Fericirea Paradoxală (AI)</h3>
-                <p>O buclă Gödeliană de satisfacție logică.</p>
-            </div>
-            <div class="block-section final-discussion">
-                <h3>Concluzii</h3>
-                <p>Fericirea este un construct cultural și personal.</p>
-            </div>
-        </section>
     </main>
-    
+
+    <dialog id="log-modal" class="aesthetic-modal">
+        <form id="log-form" method="dialog">
+            <h3>Jurnal de Recunoștință</h3>
+            <div class="input-group">
+                <label for="log-date">Data</label>
+                <input type="date" id="log-date" required>
+            </div>
+            <div class="input-group">
+                <label for="log-note">Ce te-a făcut fericit?</label>
+                <textarea id="log-note" placeholder="Momentul meu de azi..." required></textarea>
+            </div>
+            <div class="modal-btns">
+                <button type="submit" class="pill-btn">Salvează</button>
+                <button type="button" id="close-log" class="text-btn">Anulează</button>
+            </div>
+            <div id="log-rows" class="mini-log"></div>
+        </form>
+    </dialog>
+
     <footer>
-        <p>&copy; 2025 Proiect AWD - Dumitru Delia (ddbd3078)</p>
+        <p>&copy; 2026 Proiect Happiness - Explorare și Tehnologie</p>
+        <p class="validation-links">
+            <a href="http://validator.w3.org/" target="_blank">W3C HTML</a> |
+            <a href="http://jigsaw.w3.org/css-validator" target="_blank">W3C CSS</a> |
+            <a href="https://wave.webaim.org/" target="_blank">WAVE Accessibility</a>
+        </p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
