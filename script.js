@@ -1,5 +1,5 @@
 (() => {
-    const STATE_KEY = 'happiness_v2';
+    const STATE_KEY = 'happiness_v3';
     const today = new Date().toISOString().slice(0, 10);
 
     const happinessTasks = [
@@ -119,3 +119,4 @@
     // Inițializarea pornește aici
     init();
 })();
+
