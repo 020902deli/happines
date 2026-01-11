@@ -1,96 +1,226 @@
+/* ==================================== */
+/* 1. Configurare Generală & Teme       */
+/* ==================================== */
 :root {
-    --color-primary: #f8e7e7; 
-    --color-secondary: #dceefc; 
-    --color-tertiary: #f0e6fa; 
-    --color-accent: #e0b0ff; 
-    --color-text-dark: #333333; 
-    --color-background-white: #ffffff; 
-    --color-background-card: #fdfdfd; 
-    --font-heading: 'Montserrat', sans-serif; 
-    --font-body: 'Lato', sans-serif; 
-    --border-radius-card: 25px; 
+    --soft-pink: #fce4ec;
+    --soft-blue: #e3f2fd;
+    --accent-purple: #9575cd;
+    --glass: rgba(255, 255, 255, 0.7);
+    --text: #333333;
+    --card-bg: #ffffff;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+[data-theme="dark"] {
+    --soft-pink: #2d1b2d;
+    --soft-blue: #1b262d;
+    --accent-purple: #b39ddb;
+    --glass: rgba(20, 20, 20, 0.8);
+    --text: #e0e0e0;
+    --card-bg: #252525;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: var(--font-body);
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, var(--soft-pink), var(--soft-blue));
+    background-attachment: fixed;
+    color: var(--text);
     line-height: 1.6;
-    color: var(--color-text-dark);
-    background-color: var(--color-primary);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
+/* ==================================== */
+/* 2. Navigație și Hero                 */
+/* ==================================== */
+.glass-nav {
+    position: fixed;
+    top: 20px; width: 90%; left: 5%;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    z-index: 1000;
+    padding: 10px 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--accent-purple); }
+/* Stil pentru noul buton de temă */
+.theme-switcher-btn {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.theme-switcher-btn:hover {
+    transform: rotate(15deg) scale(1.1);
+    background: var(--card-bg);
+}
+
+/* Schimbarea iconiței în funcție de temă */
+[data-theme="dark"] .mode-icon::before {
+    content: "🌙"; /* Iconiță pentru modul Dark */
+}
+
+[data-theme="light"] .mode-icon::before {
+    content: "☀️"; /* Iconiță pentru modul Light */
+}
+.hero {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 40px;
+}
+
+.hero h1 { font-size: clamp(2rem, 7vw, 4rem); color: var(--accent-purple); }
+
+/* ==================================== */
+/* 3. Layout Responsiv (Punctele 1-6)    */
+/* ==================================== */
 main {
-    flex-grow: 1;
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
-    width: 100%;
 }
 
-/* Tipografie */
-h1 { font-family: var(--font-heading); font-size: 3.5rem; text-align: center; color: var(--color-accent); margin-bottom: 20px; }
-h2 { border-bottom: 2px solid var(--color-accent); margin-bottom: 20px; padding-bottom: 5px; }
-
-/* Layout Grid Desktop */
-.two-columns-section-group { display: flex; gap: 20px; margin-bottom: 30px; }
-.two-columns-section-group > section { flex: 1; }
-
-#personal-meaning, #improbable-contexts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-#improbable-contexts .final-discussion { grid-column: 1 / -1; }
-
-/* Carduri */
-.content-block {
-    background: var(--color-background-card);
+/* Această clasă asigură aspectul alb/glass peste tot */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    margin-bottom: 30px;
     padding: 30px;
-    border-radius: var(--border-radius-card);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.block-section { background: #fff; padding: 20px; border-radius: 15px; margin-bottom: 15px; }
-.bordered-block { border: 1px solid var(--color-accent); }
+.two-columns-section-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
 
-/* Video Responsive */
-.video-wrapper {
+.perspective-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Video Responsiv pentru pct 5 */
+.video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 20px;
     margin: 20px 0;
 }
-.video-wrapper iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%; border: none;
+
+.video-container iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
 
-/* Galerie Flip */
-.image-gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-.gallery-item { height: 280px; perspective: 1000px; }
-.flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
-.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-.flip-card-front, .flip-card-back { 
-    position: absolute; width: 100%; height: 100%; backface-visibility: hidden; 
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    border-radius: 20px; background: #fff; padding: 10px;
+/* Galeria Flip Cards */
+.image-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.gallery-item { height: 300px; perspective: 1000px; }
+.flip-card-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.6s; transform-style: preserve-3d;
+}
+.gallery-item:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; border-radius: 25px;
+    background: var(--card-bg); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 15px;
 }
 .flip-card-back { transform: rotateY(180deg); }
-.flip-card-back img { width: 100%; height: 80%; object-fit: cover; border-radius: 10px; }
+.flip-card-back img { width: 100%; height: 80%; object-fit: cover; border-radius: 15px; }
 
-/* ADAPTIVE DESIGN (Media Queries) */
-@media (max-width: 992px) {
-    .two-columns-section-group { flex-direction: column; }
-    #personal-meaning, #improbable-contexts { grid-template-columns: 1fr; }
-    h1 { font-size: 2.5rem; }
+/* Butoane și Taskuri */
+.pill-btn {
+    background: var(--accent-purple); color: white; border: none;
+    padding: 12px 25px; border-radius: 25px; cursor: pointer;
+    transition: var(--transition); font-weight: bold;
 }
 
-@media (max-width: 600px) {
+.task-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;
+}
+
+.task-item {
+    background: var(--card-bg); padding: 15px; border-radius: 15px; text-align: center;
+    transition: var(--transition); cursor: pointer;
+}
+/* ==================================== */
+/* 6. Stiluri Footer                    */
+/* ==================================== */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.validation-links a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.validation-links a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* Ajustare pentru mobil */
+@media (max-width: 480px) {
+    .validation-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* ==================================== */
+/* 4. Adaptive Design (Mobile)          */
+/* ==================================== */
+@media (max-width: 768px) {
+    .glass-nav { top: 0; width: 100%; left: 0; border-radius: 0; }
+    .hero { padding-top: 100px; }
+    /* Forțăm galeria să aibă 2 coloane pe tablete/telefoane mari */
+    .image-gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+    /* 1 coloană pe telefoane foarte mici */
     .image-gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item { height: 220px; }
-    .content-block { padding: 15px; }
-    .perspectives-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
 }
